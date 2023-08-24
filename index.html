@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illuminated</title>
+    <title>Illuminated - The Smart Classroom Revolution</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
     <style>
         * {
             font-family: 'Rubik', sans-serif;
@@ -20,28 +21,44 @@
             background-color: #000;
             color: #fff;
         }
+
+        .enlarge {
+            transition: transform 0.3s ease;
+        }
+
+        .enlarge:hover {
+            transform: scale(1.01);
+        }
     </style>
 </head>
 
 <body class="bgcustom">
     <div class="container text-center my-5">
-        <img src="IlluminatED - PNG Logo.png" class="rounded" width="200"
-            style="box-shadow: 0 2px 4px 0 #fff, 0 3px 10px 0 #fff;">
+        <img src="IlluminatED - PNG Logo.png" class="rounded enlarge" width="200"
+            style="box-shadow: 1px 1px 1px 1px #fff, 1px 1px 5px 1px #fff;">
     </div>
-    <form class="container bgcustom col-md-4">
+    <form id="loginForm" class="container bgcustom col-md-4">
         <h3 class="text-center fw-bold my-4">SIGN IN</h3>
         <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                style="background-color: #000; color: #fff;">
-            <div id="emailHelp" class="form-text bgcustom">We'll never share your email with anyone else.</div>
+            <label for="email" class="form-label fw-bold">Email address</label>
+            <input type="email" class="form-control rounded-pill" id="email"
+                style="background-color: #000; color: #fff;" required>
+            <div id="emailHelp" class="form-text mt-3" style="color: #fff;">We'll never share your email with anyone
+                else.
+            </div>
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" style="background-color: #000; color: #fff;">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <input type="password" class="form-control rounded-pill" id="password"
+                style="background-color: #000; color: #fff;" required>
         </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input rounded-circle" id="checkbox">
+            <label class="form-check-label" for="checkbox">Keep me signed in</label>
+        </div>
+        <div id="error" class="text-danger py-3 fs-6"></div>
         <h6 class="text-center">or use</h6>
-        <div class="my-3 text-center">
+        <div class="my-4 text-center">
             <button type="button" class="btn btn-outline-light rounded-circle mx-3 disabled"><i
                     class="bi bi-google fs-3"></i></button>
             <button type="button" class="btn btn-outline-light rounded-circle mx-3 disabled"><i
@@ -49,12 +66,37 @@
             <button type="button" class="btn btn-outline-light rounded-circle mx-3 disabled"><i
                     class="bi bi-linkedin fs-3"></i></button>
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="checkbox">
-            <label class="form-check-label" for="checkbox">Keep me signed in</label>
-        </div>
         <button type="submit" class="btn btn-light w-100">Submit</button>
     </form>
+    <script>
+        const validCredentials = [
+            { email: "patelmeghmahesh2701@gmail.com", password: "meghpatel" },
+            { email: "dhruvipghiya@gmail.com", password: "dhruvighiya" },
+            { email: "mokshitmehta1811@gmail.com", password: "mokshitmehta" },
+            { email: "shahforam966@gmail.com", password: "foramshah" },
+        ];
+
+        function checkLogin(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+            const errorDiv = document.getElementById("error");
+
+            const isValid = validCredentials.some(credentials => {
+                return credentials.email === emailInput && credentials.password === passwordInput;
+            });
+
+            if (isValid) {
+                window.location.href = "landing.html";
+            } else {
+                errorDiv.textContent = "Invalid email or password. Please try again.";
+            }
+        }
+
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", checkLogin);
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
