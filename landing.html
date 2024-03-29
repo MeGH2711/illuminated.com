@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         * {
             font-family: 'Rubik', sans-serif;
@@ -29,77 +30,94 @@
         .enlarge:hover {
             transform: scale(1.01);
         }
+
+        .form-check-input[type="checkbox"]:checked {
+            background-color: green;
+        }
+
+        .light-switch .form-check-input {
+            rotate: 270deg;
+        }
+
+        .form-range {
+            position: relative;
+            width: 100%;
+            /* Ensure the range takes full width */
+        }
+
+        .form-range .form-label {
+            position: absolute;
+            bottom: -1.5rem;
+            /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 
 <body class="bgcustom">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="index.html" type="button" class="btn btn-light m-3 fw-bold">Sign Out</a>
+    </div>
     <div class="container text-center my-5">
         <img src="IlluminatED - PNG Logo.png" class="rounded enlarge" width="200"
             style="box-shadow: 1px 1px 1px 1px #fff, 1px 1px 5px 1px #fff;">
     </div>
-    <div class="container col-md-6">
-        <h3 class="text-center fw-bold my-4">Appliances</h3>
-        <div class="col">
-            <div class="accordion bg-dark" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item bgcustom">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bgcustom" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseOne">
-                            Light
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+    <div class="container">
+        <h3 class="text-center fw-bold my-4">Hi User</h3>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <a href="light.html" role="button" style="text-decoration: none;">
+                    <div class="card text-center enlarge h-100">
+                        <i class="bi bi-lightbulb card-img-top" style="font-size: 75px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">LIGHT</h5>
+                            <p class="card-text">
+                                Power : <span class="text-success">On</span><br>
+                                Fan Speed : High<br>
+                                Intensity : 70%<br>
+                                Number of Fans on : 4
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bgcustom" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
-                            Fan
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until
-                            the collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                </a>
+            </div>
+            <div class="col">
+                <a href="/fan.html" role="button" style="text-decoration: none;">
+                    <div class="card text-center h-100">
+                        <i class="bi bi-fan card-img-top" style="font-size: 75px;"></i>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">FAN</h5>
+                            <p class="card-text">
+                                Power : <span class="text-success">On</span><br>
+                                Fan Speed : High<br>
+                                Number of Fans on : 2
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bgcustom" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
-                            Air Conditioner
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
+                </a>
+            </div>
+            <div class="col">
+                <a href="/ac.html" role="button" style="text-decoration: none;">
+                    <div class="card text-center h-100">
+                        <div class="card-img-top">
+                            <i class="bi bi-wind card-img-top" style="font-size: 75px;"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">AIR CONDITIONER</h5>
+                            <p class="card-text">
+                                Power : <span class="text-success">On</span><br>
+                                Fan Speed : Medium<br>
+                                Number of ACs on : 1<br>
+                                Temperature : 22&deg; C
+                            </p>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
+        <a href="status.html" type="button" class="container btn btn-primary my-4">Check Classroom Status</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
